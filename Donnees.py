@@ -1,3 +1,5 @@
+# -*-coding:Utf-8 -*
+
 """Fichier de données et paramètres du jeu de labyrinthe"""
 
 # Dimensions du labyrinthe et de la fenêtre
