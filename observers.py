@@ -1,6 +1,6 @@
 # -*-coding:Utf-8 -*
 
-""" Observateurs pour modifier l'affichage selon la position du personnage"""
+""" Observateurs et décorateurs - Classes et fonctions génériques réutilisables """
 
 class Observer:
     """
@@ -34,7 +34,17 @@ class Event():
             if self.name in observer._observables:
                 observer._observables[self.name](*self.arg)
 
+def singleton(new_class):
+    """ Décorateur destiné à gérer les classes Singleton """
+    instances = {}
+    def get_instance():
+        if new_class not in instances:
+            instances[new_class] = new_class()
+        return instances[new_class]
+    return get_instance
 
+
+##### La suite du code est uniquement destinée aux tests #####
 class Room(Observer):
 
     """ Test de l'observation d'un évènement"""
