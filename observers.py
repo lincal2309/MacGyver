@@ -1,10 +1,10 @@
 # -*-coding:Utf-8 -*
 
-""" Observateurs et décorateurs - Classes et fonctions génériques réutilisables """
+""" Observers et decorators - Reusable patterns """
 
 class Observer:
     """
-    Classe destinée à définir les modalités d'observation des évènements
+    Elements to be observed
     """
     _observers = []
 
@@ -19,10 +19,10 @@ class Observer:
 
 class Event():
     """
-    Liste des évènements observables
+    Events launching oberved elements
     """
 
-    def __init__(self, name, *args, autofire = True):
+    def __init__(self, name, *args, autofire=True):
         self.name = name
         self.arg = args
         if autofire:
@@ -35,7 +35,7 @@ class Event():
                 observer._observables[self.name](*self.arg)
 
 def singleton(new_class):
-    """ Décorateur destiné à gérer les classes Singleton """
+    """ Decorator for singleton classes """
     instances = {}
     def get_instance():
         if new_class not in instances:
@@ -44,10 +44,10 @@ def singleton(new_class):
     return get_instance
 
 
-##### La suite du code est uniquement destinée aux tests #####
+##### Following code is for testing purposes #####
 class Room(Observer):
 
-    """ Test de l'observation d'un évènement"""
+    """ Observer pattern test """
 
     def __init__(self):
         Observer.__init__(self) # Observer's init needs to be called
