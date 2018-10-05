@@ -6,6 +6,7 @@
 
 import pygame
 import sys
+import os
 from pygame.locals import *
 from labyrinth import *
 from Donnees import *
@@ -13,6 +14,9 @@ from Donnees import *
 
 def main():
     """ Main instructions """
+
+    # This environment option makes the windows open in the middle of the screen
+    os.environ['SDL_VIDEO_CENTERED'] = "1"
 
     pygame.init()
 
