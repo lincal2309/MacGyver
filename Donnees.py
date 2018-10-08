@@ -5,6 +5,7 @@
     As there is no need to have several instance of this class, it's built as a singleton decorator
 """
 
+import os
 from observers import *
 
 @singleton
@@ -22,7 +23,7 @@ class Donnees:
         self.object_list = ["Seringue", "Aiguille", "Ether"]
 
         # Pictures folder
-        self.ressources_path = ".\\Ressources\\"
+        self.ressources_path = os.path.dirname(".\\Ressources\\")
 
         # List of pictures
         self.MacGyver_file = "MacGyver.png"

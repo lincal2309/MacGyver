@@ -37,10 +37,8 @@ class Labyrinth:
         grid_values = {}     # Dictionary of the places. Key : position in the grid (X, y)
         f = open(self.lab_data.grid_file, "r")
         cont = f.read()
-        l = 0
-        for line in cont.split("\n"):
-            c = 0
-            for char in line:
+        for l, line in enumerate(cont.split("\n")):
+            for c, char in enumerate(line):
                 if char == "E":
                     # "E" = "Entrée" : starting point
                     grid_values[c, l] = ("M", self.MacGyver_img)
@@ -57,8 +55,6 @@ class Labyrinth:
                 else:
                     print("Grille incorrecte")
                     return
-                c += 1
-            l += 1
 
         # Display labyrinth's structure
         #    This method is called at this stage so that additional elements will be displayed on top of the structure
