@@ -23,10 +23,10 @@ class Screen:
 
     def __init__(self, screen_info):
         self.screen_structure = 0, 0, 0 #structure du fond, noire pour commencer
-        self.screen = pygame.display.set_mode(screen_info.screen_size)
+        self.screen = pygame.display.set_mode(screen_info.display_size)
         self.scale_ratio = screen_info.step
         pygame.display.set_caption('MacGyver')
-        self.text_zone = pygame.Rect(0, screen_info.screen_height - screen_info.step, screen_info.screen_width, screen_info.step)
+        self.text_zone = pygame.Rect(0, screen_info.display_height - screen_info.step, screen_info.display_width, screen_info.step)
 
     def refresh_screen(self, objects_to_display, msg=""):
         """ Display update after each action
