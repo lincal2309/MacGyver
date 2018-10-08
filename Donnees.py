@@ -25,6 +25,9 @@ class Donnees:
         # self.step will be used as final actual cell size
         self.step = min(round(self.screen_height / (self.lab_dim + 2)), round(self.screen_width / (self.lab_dim + 1)))
 
+        # Define scale for objets adjustments when necessary
+        self.scale = self.step / self.cell_size
+
         self.display_size = self.display_width, self.display_height = self.step * self.lab_dim, self.step * (self.lab_dim + 1)
 
         # Name of the file that defines the grid

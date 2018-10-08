@@ -25,6 +25,7 @@ class Screen:
         self.screen_structure = 0, 0, 0 #structure du fond, noire pour commencer
         self.screen = pygame.display.set_mode(screen_info.display_size)
         self.scale_ratio = screen_info.step
+        self.scale = screen_info.scale
         pygame.display.set_caption('MacGyver')
         self.text_zone = pygame.Rect(0, screen_info.display_height - screen_info.step, screen_info.display_width, screen_info.step)
 
@@ -54,7 +55,9 @@ class Screen:
         # Check if Fopnt module has been correctly charged (avoid to get an error if not)
         if pygame.font:
             self.screen.fill(self.screen_structure, self.text_zone)
-            font = pygame.font.Font(None, 30)
+            # Base font size 20 scaled by screen ratio calculated
+            #    according to the actual user's screen
+            font = pygame.font.Font(None, round(20 * self.scale))
             text = font.render(message, 1, (220, 0, 0))
             text_y = self.text_zone.y + self.text_zone.height / 2
             textpos = text.get_rect(centerx=self.text_zone.width / 2, centery=text_y)
